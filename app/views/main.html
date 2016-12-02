@@ -1,23 +1,16 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
+<md-toolbar layout="row" class="md-hue-3">
+  <div class="md-toolbar-tools">
+    <span>La lista negra de contratistas del gobierno</span>
+  </div>
+</md-toolbar>
+<md-content>
+  <md-list flex>
+    <md-subheader class="md-no-sticky">Contribuyentes que presuntamente simulan operaciones y emiten facturas apócrifas que tienen contratos del gobierno</md-subheader>
+    <md-list-item class="md-3-line" ng-repeat="company in vm.companies" ng-click="null">
+      <div class="md-list-item-text" layout="column">
+        <h3>{{ company.name }}</h3>
+        <p ng-repeat='result in company.results'><a ng-href='http://contratobook.org/#/contratos?E{{result.id}}' >{{ result.proveedor_contratista }}</a></p>
+      </div>
+    </md-list-item>
+  </md-list>
+</md-content>
