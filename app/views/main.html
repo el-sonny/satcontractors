@@ -5,11 +5,12 @@
 </md-toolbar>
 <md-content>
   <md-list flex>
-    <md-subheader class="md-no-sticky">Contribuyentes que presuntamente simulan operaciones y emiten facturas apócrifas que tienen contratos del gobierno</md-subheader>
-    <md-list-item class="md-3-line" ng-repeat="company in vm.companies" ng-click="null">
+    <md-subheader class="md-no-sticky">Contribuyentes que presuntamente simulan operaciones y emiten facturas apócrifas y tienen contratos con el gobierno.</md-subheader>
+    <md-list-item class="md-3-line" ng-repeat="company in vm.companies" >
       <div class="md-list-item-text" layout="column">
-        <h3>{{ company.name }}</h3>
+        <h3>{{ company.record["Nombre del Contribuyente"] }}</h3>
         <p ng-repeat='result in company.results'><a ng-href='http://contratobook.org/#/contratos?E{{result.id}}' >{{ result.proveedor_contratista }}</a></p>
+        <p>{{result}}</p>
       </div>
     </md-list-item>
   </md-list>
