@@ -9,6 +9,7 @@
     <md-list-item class="md-3-line" ng-repeat="company in vm.companies" >
       <div class="md-list-item-text" layout="column">
         <h3>{{ company.record["Nombre del Contribuyente"] }}</h3>
+        <h4>{{company.record["Número y fecha de oficio global de presunción"]}}</h4>
         <p ng-repeat='result in company.results'><a ng-href='http://contratobook.org/#/contratos?E{{result.id}}' >{{ result.proveedor_contratista }}</a></p>
         <p>{{result}}</p>
       </div>
