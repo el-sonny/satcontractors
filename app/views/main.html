@@ -3,13 +3,17 @@
     <span>La lista negra de contratistas del gobierno</span>
   </div>
   <div>
-    <a href='' ng-click='vm.changeList("presuntos")'>Presuntos</a>
-    <a href='' ng-click='vm.changeList("definitivos")' >Definitivos</a>
+    <md-button md-class='primary'  ng-disabled='vm.list=="presuntos"' ng-click='vm.changeList("presuntos")'>Presuntos</md-button md-class='primary'>
+    <md-button md-class='primary'  ng-disabled='vm.list=="definitivos"' ng-click='vm.changeList("definitivos")' >Definitivos</md-button md-class='primary'>
   </div>
 </md-toolbar>
 <md-content>
   <md-list flex>
-    <md-subheader class="md-no-sticky">Contribuyentes que presuntamente simulan operaciones y emiten facturas apócrifas y tienen contratos con el gobierno.</md-subheader>
+    <md-subheader class="md-no-sticky">Contribuyentes que
+     <span ng-if='vm.list=="presuntos"' >presuntamente</span> 
+     <span ng-if='vm.list=="definitivos"' >definitivamente</span> 
+
+     simulan operaciones y emiten facturas apócrifas y tienen contratos con el gobierno.</md-subheader>
     <md-list-item class="md-3-line" ng-repeat="company in vm.companies" >
       <div class="md-list-item-text" layout="column">
         <h3>{{ company.record["Nombre del Contribuyente"] }}</h3>
