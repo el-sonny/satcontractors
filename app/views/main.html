@@ -1,6 +1,10 @@
 <md-toolbar layout="row" class="md-hue-3">
-  <div class="md-toolbar-tools">
+  <div flex class="md-toolbar-tools">
     <span>La lista negra de contratistas del gobierno</span>
+  </div>
+  <div>
+    <a href='' ng-click='vm.changeList("presuntos")'>Presuntos</a>
+    <a href='' ng-click='vm.changeList("definitivos")' >Definitivos</a>
   </div>
 </md-toolbar>
 <md-content>
