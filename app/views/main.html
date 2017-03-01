@@ -1,10 +1,11 @@
-<md-toolbar layout="row" class="md-hue-3">
+<md-toolbar layout="row" class="md-hue-3" layout-wrap>
   <div flex class="md-toolbar-tools">
     <span>La lista negra de contratistas del gobierno</span>
   </div>
   <div>
     <md-button md-class='primary'  ng-disabled='vm.list=="presuntos"' ng-click='vm.changeList("presuntos")'>Presuntos</md-button md-class='primary'>
     <md-button md-class='primary'  ng-disabled='vm.list=="definitivos"' ng-click='vm.changeList("definitivos")' >Definitivos</md-button md-class='primary'>
+    <md-button md-class='primary'  ng-disabled='vm.list=="no-localizados"' ng-click='vm.changeList("no-localizados")' >no-localizados</md-button md-class='primary'>
   </div>
 </md-toolbar>
 <md-content>
@@ -16,8 +17,8 @@
      simulan operaciones y emiten facturas apócrifas y tienen contratos con el gobierno.</md-subheader>
     <md-list-item class="md-3-line" ng-repeat="company in vm.companies" >
       <div class="md-list-item-text" layout="column">
-        <h3>{{ company.record["Nombre del Contribuyente"] }}</h3>
-        <h4>{{company.record["Número y fecha de oficio global de presunción"]}}</h4>
+        <h3>{{ company.record[vm.nameKey] }}</h3>
+        <h4>{{company.record[vm.dateKey]}}</h4>
         <p ng-repeat='result in company.results'><a ng-href='http://contratobook.org/#/contratos?E{{result.id}}' >{{ result.proveedor_contratista }}</a></p>
         <p>{{result}}</p>
       </div>

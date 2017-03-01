@@ -14,11 +14,15 @@ angular.module('satcontractorsApp')
     vm.changeList = changeList;
     vm.init = init;
     vm.list = 'presuntos';
-
+    vm.nameKey = 'Nombre del Contribuyente';
+    vm.dateKey = 'Número y fecha de oficio global de presunción';
     vm.init();
 
     function changeList(list) {
       vm.list = list;
+      vm.nameKey = list === 'no-localizados' ? 'Nombre, Denominación o Razón Social' : 'Nombre del Contribuyente';
+      vm.dateKey = list === 'no-localizados' ?
+        'Fecha de Publicación' : 'Número y fecha de oficio global de presunción';
       vm.init();
     }
 
